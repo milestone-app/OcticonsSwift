@@ -40,7 +40,7 @@ public extension UIImage {
 
     #if os(watchOS)
     public convenience init?(octiconsID: OcticonsID, backgroundColor: UIColor, iconColor: UIColor, iconScale: CGFloat, size: CGSize) {
-        if let image = UIImage.makeImage(octiconsID: octiconsID, backgroundColor: backgroundColor, iconColor: iconColor, iconScale: iconScale, size: size), let imageData = UIImagePNGRepresentation(image) {
+        if let image = UIImage.makeImage(octiconsID: octiconsID, backgroundColor: backgroundColor, iconColor: iconColor, iconScale: iconScale, size: size), let imageData = image.pngData() {
             self.init(data: imageData, scale: WKInterfaceDevice.current().screenScale)
         } else {
             return nil
@@ -48,7 +48,7 @@ public extension UIImage {
     }
     #else
     public convenience init?(octiconsID: OcticonsID, backgroundColor: UIColor, iconColor: UIColor, iconScale: CGFloat, size: CGSize) {
-        if let image = UIImage.makeImage(octiconsID: octiconsID, backgroundColor: backgroundColor, iconColor: iconColor, iconScale: iconScale, size: size), let imageData = UIImagePNGRepresentation(image) {
+        if let image = UIImage.makeImage(octiconsID: octiconsID, backgroundColor: backgroundColor, iconColor: iconColor, iconScale: iconScale, size: size), let imageData = image.pngData() {
             self.init(data: imageData, scale: UIScreen.main.scale)
         } else {
             return nil
@@ -76,7 +76,7 @@ public extension UIImage {
         paragraphStyle.alignment = .center
         paragraphStyle.lineBreakMode = .byWordWrapping
 
-        textContent.draw(in: textRect, withAttributes: [NSFontAttributeName : font, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: iconColor])
+        textContent.draw(in: textRect, withAttributes: [.font: font, .paragraphStyle: paragraphStyle, .foregroundColor: iconColor])
 
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
