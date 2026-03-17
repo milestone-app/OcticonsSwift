@@ -244,6 +244,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ECF6B3F41C3FFB4100F22D42;
@@ -451,7 +452,7 @@
 				PRODUCT_NAME = OcticonsSwift;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -471,7 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.OcticonsSwift-iOS";
 				PRODUCT_NAME = OcticonsSwift;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
